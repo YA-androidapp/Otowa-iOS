@@ -8,9 +8,150 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var prefix:String = ""
+    @State var suffix:String = ""
+    @State var tweet:String = ""
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack{
+            HStack{
+            Text("Otowa")
+                .padding()
+                
+                Spacer()
+                
+                Menu {
+                            Button(action: {
+                                
+                            }) {
+                                Image(systemName: "doc")
+                                Text("KML file")
+                            }
+                            Button(action: {
+                                
+                            }) {
+                                Image(systemName: "ladybug")
+                                Text("Twitter API")
+                            }
+                            Button(action: {
+                                
+                            }) {
+                                Image(systemName: "gearshape")
+                                Text("Settings")
+                            }
+                        } label: {
+                            Image(systemName: "menucard")
+                        }.padding(10)
+            }
+                .foregroundColor(Color.white)
+                .background(Color.purple)
+        
+            HStack{
+                Button(action: {}, label: {
+                    Text("CLEAR")
+                })
+                    .frame(width: 80, height: 80)
+                    .foregroundColor(Color.black)
+                    .background(Color.gray)
+                    .font(.footnote)
+                
+                VStack {
+                    ZStack {
+                        TextEditor(text: $prefix)
+                            .frame(height: 35)
+                            .font(.body)
+                            .border(Color.gray,width: 1)
+                        if self.prefix.isEmpty {
+                            HStack {
+                                Text("Prefix")
+                                    .opacity(0.5)
+                                    .padding(.horizontal, 5)
+                                Spacer()
+                            }
+                        }
+                    }
+                    
+                    ZStack {
+                        TextEditor(text: $suffix)
+                            .frame(height: 35)
+                            .font(.body)
+                            .border(Color.gray,width: 1)
+                        
+                        if self.suffix.isEmpty {
+                            HStack {
+                                Text("Suffix")
+                                    .opacity(0.5)
+                                    .padding(.horizontal, 5)
+                                Spacer()
+                            }
+                        }
+                    }
+                }
+                
+                Button(action: {}, label: {
+                    Text("Tweet")
+                })
+                    .frame(width: 80, height: 80)
+                    .foregroundColor(Color.black)
+                    .background(Color.gray)
+                    .font(.footnote)
+            }
+            .padding(.horizontal, 10)
+            
+            HStack{
+                Button(action: {}, label: {
+                    Text("LOCATE")
+                })
+                    .frame(width: 80, height: 120)
+                    .foregroundColor(Color.black)
+                    .background(Color.gray)
+                    .font(.footnote)
+                
+                TextEditor(text: $tweet)
+                    .frame(height: 120)
+                    .font(.body)
+                    .border(Color.gray,width: 1)
+            }
+            .padding(.horizontal, 10)
+            
+            HStack{
+                Button(action: {}, label: {
+                    Text("VOL--")
+                })
+                    .frame(width: 70, height: 70)
+                    .foregroundColor(Color.white)
+                    .background(Color(red: 0, green: 0.6, blue: 0.8))
+                    .font(.footnote)
+                
+                Button(action: {}, label: {
+                    Text("VOL++")
+                })
+                    .frame(width: 70, height: 70)
+                    .foregroundColor(Color.white)
+                    .background(Color(red: 0, green: 0.6, blue: 0.8))
+                    .font(.footnote)
+                
+                Button(action: {}, label: {
+                    Text("MAX")
+                })
+                    .frame(width: 70, height: 70)
+                    .foregroundColor(Color.white)
+                    .background(Color(red: 0, green: 0.6, blue: 0.8))
+                    .font(.footnote)
+                
+                Button(action: {}, label: {
+                    Text("START LOGGING")
+                })
+                    .frame(width: 70, height: 70)
+                    .foregroundColor(Color.white)
+                    .background(Color(red: 0, green: 0.4, blue: 1))
+                    .font(.footnote)
+                
+            }
+            .padding(.horizontal, 10)
+            
+            Spacer(minLength: 0)
+        }
     }
 }
 
