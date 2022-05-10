@@ -12,44 +12,61 @@ struct ContentView: View {
     @State var suffix:String = ""
     @State var tweet:String = ""
     
+    @State private var clearLongPressed = false
+    
     var body: some View {
         VStack{
             HStack{
             Text("Otowa")
                 .padding()
                 
-                Spacer()
-                
-                Menu {
-                            Button(action: {
-                                
-                            }) {
-                                Image(systemName: "doc")
-                                Text("KML file")
-                            }
-                            Button(action: {
-                                
-                            }) {
-                                Image(systemName: "ladybug")
-                                Text("Twitter API")
-                            }
-                            Button(action: {
-                                
-                            }) {
-                                Image(systemName: "gearshape")
-                                Text("Settings")
-                            }
-                        } label: {
-                            Image(systemName: "menucard")
-                        }.padding(10)
+            Spacer()
+            
+            Menu {
+                    Button(action: {
+                        
+                    }) {
+                        Image(systemName: "doc")
+                        Text("KML file")
+                    }
+                    Button(action: {
+                        
+                    }) {
+                        Image(systemName: "ladybug")
+                        Text("Twitter API")
+                    }
+                    Button(action: {
+                        
+                    }) {
+                        Image(systemName: "gearshape")
+                        Text("Settings")
+                    }
+                } label: {
+                    Image(systemName: "menucard")
+                }.padding(10)
             }
                 .foregroundColor(Color.white)
                 .background(Color.purple)
         
             HStack{
-                Button(action: {}, label: {
+                Button(action: {
+                    if clearLongPressed {
+                        clearLongPressed = false
+                    } else {
+                        self.tweet = ""
+                    }
+                }, label: {
                     Text("CLEAR")
                 })
+                    .simultaneousGesture(
+                        LongPressGesture().onEnded{ _ in
+                            self.tweet = ""
+                            self.prefix = ""
+                            self.suffix = ""
+                            
+                            clearLongPressed = true
+                        }
+                    )
                     .frame(width: 80, height: 80)
                     .foregroundColor(Color.black)
                     .background(Color.gray)
@@ -107,10 +124,20 @@ struct ContentView: View {
                     .background(Color.gray)
                     .font(.footnote)
                 
-                TextEditor(text: $tweet)
-                    .frame(height: 120)
-                    .font(.body)
-                    .border(Color.gray,width: 1)
+                ZStack(alignment: .top) {
+                    TextEditor(text: $tweet)
+                        .frame(height: 120)
+                        .font(.body)
+                        .border(Color.gray,width: 1)
+                    if self.tweet.isEmpty {
+                        HStack {
+                            Text("Tweet")
+                                .opacity(0.5)
+                                .padding(5)
+                            Spacer()
+                        }
+                    }
+                }
             }
             .padding(.horizontal, 10)
             
