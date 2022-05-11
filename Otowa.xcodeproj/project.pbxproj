@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A53F5FD282B5F6C00916C1D /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 9A53F5FC282B5F6C00916C1D /* SQLite */; };
 		9AC58CB1282A82320074D23D /* OtowaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC58CB0282A82320074D23D /* OtowaApp.swift */; };
 		9AC58CB3282A82320074D23D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC58CB2282A82320074D23D /* ContentView.swift */; };
 		9AC58CB5282A82380074D23D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AC58CB4282A82380074D23D /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A53F5FD282B5F6C00916C1D /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = Otowa;
+			packageProductDependencies = (
+				9A53F5FC282B5F6C00916C1D /* SQLite */,
+			);
 			productName = Otowa;
 			productReference = 9AC58CAD282A82310074D23D /* Otowa.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 9AC58CA4282A82310074D23D;
+			packageReferences = (
+				9A53F5FB282B5F6C00916C1D /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+			);
 			productRefGroup = 9AC58CAE282A82310074D23D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -341,6 +349,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9A53F5FB282B5F6C00916C1D /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9A53F5FC282B5F6C00916C1D /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A53F5FB282B5F6C00916C1D /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9AC58CA5282A82310074D23D /* Project object */;
 }
