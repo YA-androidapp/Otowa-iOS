@@ -179,6 +179,14 @@ struct ContentView: View {
             
             Spacer(minLength: 0)
         }
+        .onAppear {
+            // TODO
+            let database = Database()
+            let label = database.townDatastore.search(lat: 35, lon: 140)
+            if(label != nil){
+                self.tweet += label!
+            }
+        }
     }
 }
 

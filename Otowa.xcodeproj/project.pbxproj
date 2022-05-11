@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9A53F5FD282B5F6C00916C1D /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 9A53F5FC282B5F6C00916C1D /* SQLite */; };
+		9A53F5FF282B603E00916C1D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A53F5FE282B603E00916C1D /* Database.swift */; };
+		9A53F602282BEA9600916C1D /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = 9A53F601282BEA9600916C1D /* database.db */; };
 		9AC58CB1282A82320074D23D /* OtowaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC58CB0282A82320074D23D /* OtowaApp.swift */; };
 		9AC58CB3282A82320074D23D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC58CB2282A82320074D23D /* ContentView.swift */; };
 		9AC58CB5282A82380074D23D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AC58CB4282A82380074D23D /* Assets.xcassets */; };
@@ -15,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A53F5FE282B603E00916C1D /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		9A53F600282BE63500916C1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9A53F601282BEA9600916C1D /* database.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.db; sourceTree = SOURCE_ROOT; };
 		9AC58CAD282A82310074D23D /* Otowa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Otowa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC58CB0282A82320074D23D /* OtowaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtowaApp.swift; sourceTree = "<group>"; };
 		9AC58CB2282A82320074D23D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,8 +58,11 @@
 		9AC58CAF282A82310074D23D /* Otowa */ = {
 			isa = PBXGroup;
 			children = (
+				9A53F600282BE63500916C1D /* Info.plist */,
 				9AC58CB0282A82320074D23D /* OtowaApp.swift */,
 				9AC58CB2282A82320074D23D /* ContentView.swift */,
+				9A53F5FE282B603E00916C1D /* Database.swift */,
+				9A53F601282BEA9600916C1D /* database.db */,
 				9AC58CB4282A82380074D23D /* Assets.xcassets */,
 				9AC58CB6282A82380074D23D /* Preview Content */,
 			);
@@ -135,6 +143,7 @@
 			files = (
 				9AC58CB8282A82380074D23D /* Preview Assets.xcassets in Resources */,
 				9AC58CB5282A82380074D23D /* Assets.xcassets in Resources */,
+				9A53F602282BEA9600916C1D /* database.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A53F5FF282B603E00916C1D /* Database.swift in Sources */,
 				9AC58CB3282A82320074D23D /* ContentView.swift in Sources */,
 				9AC58CB1282A82320074D23D /* OtowaApp.swift in Sources */,
 			);
@@ -279,6 +289,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Otowa/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Otowa/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -308,6 +320,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Otowa/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Otowa/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
