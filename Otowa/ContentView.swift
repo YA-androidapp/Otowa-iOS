@@ -14,6 +14,8 @@ struct ContentView: View {
     
     @State private var clearLongPressed = false
     
+    @ObservedObject var manager = LocationManager()
+    
     var body: some View {
         VStack{
             HStack{
@@ -116,7 +118,17 @@ struct ContentView: View {
             .padding(.horizontal, 10)
             
             HStack{
-                Button(action: {}, label: {
+                Button(action: {
+                    let latitude = $manager.location.wrappedValue.coordinate.latitude
+                    let longitude = $manager.location.wrappedValue.coordinate.longitude
+                    let url = "https://www.google.com/maps/search/?api=1&query=\(latitude),\(longitude)"
+                    
+                    let database = Database()
+                    let label = database.townDatastore.search(lat: latitude, lon: longitude)
+                    if(label != nil){
+                        self.tweet += label! + " " + url
+                    }
+                }, label: {
                     Text("LOCATE")
                 })
                     .frame(width: 80, height: 120)
@@ -170,7 +182,7 @@ struct ContentView: View {
                     Text("START LOGGING")
                 })
                     .frame(width: 70, height: 70)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.red)
                     .background(Color(red: 0, green: 0.4, blue: 1))
                     .font(.footnote)
                 
@@ -178,14 +190,6 @@ struct ContentView: View {
             .padding(.horizontal, 10)
             
             Spacer(minLength: 0)
-        }
-        .onAppear {
-            // TODO
-            let database = Database()
-            let label = database.townDatastore.search(lat: 35, lon: 140)
-            if(label != nil){
-                self.tweet += label!
-            }
         }
     }
 }
