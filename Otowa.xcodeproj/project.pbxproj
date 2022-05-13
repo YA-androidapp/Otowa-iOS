@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9A042FC5282D1AD7005C654D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A042FC4282D1AD7005C654D /* LocationManager.swift */; };
+		9A1DA198282E73EB0014D90F /* TwitterAPIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9A1DA197282E73EB0014D90F /* TwitterAPIKit */; };
 		9A53F5FD282B5F6C00916C1D /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 9A53F5FC282B5F6C00916C1D /* SQLite */; };
 		9A53F5FF282B603E00916C1D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A53F5FE282B603E00916C1D /* Database.swift */; };
 		9A53F602282BEA9600916C1D /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = 9A53F601282BEA9600916C1D /* database.db */; };
@@ -34,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A1DA198282E73EB0014D90F /* TwitterAPIKit in Frameworks */,
 				9A53F5FD282B5F6C00916C1D /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +100,7 @@
 			name = Otowa;
 			packageProductDependencies = (
 				9A53F5FC282B5F6C00916C1D /* SQLite */,
+				9A1DA197282E73EB0014D90F /* TwitterAPIKit */,
 			);
 			productName = Otowa;
 			productReference = 9AC58CAD282A82310074D23D /* Otowa.app */;
@@ -129,6 +132,7 @@
 			mainGroup = 9AC58CA4282A82310074D23D;
 			packageReferences = (
 				9A53F5FB282B5F6C00916C1D /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+				9A1DA196282E73EB0014D90F /* XCRemoteSwiftPackageReference "TwitterAPIKit" */,
 			);
 			productRefGroup = 9AC58CAE282A82310074D23D /* Products */;
 			projectDirPath = "";
@@ -371,6 +375,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9A1DA196282E73EB0014D90F /* XCRemoteSwiftPackageReference "TwitterAPIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mironal/TwitterAPIKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 		9A53F5FB282B5F6C00916C1D /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
@@ -382,6 +394,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9A1DA197282E73EB0014D90F /* TwitterAPIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A1DA196282E73EB0014D90F /* XCRemoteSwiftPackageReference "TwitterAPIKit" */;
+			productName = TwitterAPIKit;
+		};
 		9A53F5FC282B5F6C00916C1D /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9A53F5FB282B5F6C00916C1D /* XCRemoteSwiftPackageReference "SQLite.swift" */;
