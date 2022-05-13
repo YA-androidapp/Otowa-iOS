@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9A042FC5282D1AD7005C654D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A042FC4282D1AD7005C654D /* LocationManager.swift */; };
 		9A1DA198282E73EB0014D90F /* TwitterAPIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9A1DA197282E73EB0014D90F /* TwitterAPIKit */; };
+		9A1DA19A282E744C0014D90F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9A1DA199282E744C0014D90F /* Settings.bundle */; };
 		9A53F5FD282B5F6C00916C1D /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 9A53F5FC282B5F6C00916C1D /* SQLite */; };
 		9A53F5FF282B603E00916C1D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A53F5FE282B603E00916C1D /* Database.swift */; };
 		9A53F602282BEA9600916C1D /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = 9A53F601282BEA9600916C1D /* database.db */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		9A042FC4282D1AD7005C654D /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		9A1DA199282E744C0014D90F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		9A53F5FE282B603E00916C1D /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		9A53F600282BE63500916C1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9A53F601282BEA9600916C1D /* database.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.db; sourceTree = SOURCE_ROOT; };
@@ -46,6 +48,7 @@
 		9AC58CA4282A82310074D23D = {
 			isa = PBXGroup;
 			children = (
+				9A1DA199282E744C0014D90F /* Settings.bundle */,
 				9AC58CAF282A82310074D23D /* Otowa */,
 				9AC58CAE282A82310074D23D /* Products */,
 			);
@@ -148,6 +151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A1DA19A282E744C0014D90F /* Settings.bundle in Resources */,
 				9AC58CB8282A82380074D23D /* Preview Assets.xcassets in Resources */,
 				9AC58CB5282A82380074D23D /* Assets.xcassets in Resources */,
 				9A53F602282BEA9600916C1D /* database.db in Resources */,
