@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TwitterAPIKit
 
 struct ContentView: View {
     @State var prefix:String = ""
@@ -107,7 +108,14 @@ struct ContentView: View {
                     }
                 }
                 
-                Button(action: {}, label: {
+                Button(action: {
+                    if self.tweet != "" {
+                        client.v2.tweet.postTweet(.init(text: self.tweet))
+                            .responseObject {response in
+                                print(response.prettyString)
+                            }
+                    }
+                }, label: {
                     Text("Tweet")
                 })
                     .frame(width: 80, height: 80)
