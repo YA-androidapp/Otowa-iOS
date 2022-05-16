@@ -17,6 +17,8 @@ struct ContentView: View {
     
     @ObservedObject var manager = LocationManager()
     
+    var twAccess = TwitterAccess()
+    
     var body: some View {
         VStack{
             HStack{
@@ -39,7 +41,9 @@ struct ContentView: View {
                         Text("Twitter API")
                     }
                     Button(action: {
-                        
+                        if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
+                           UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        }
                     }) {
                         Image(systemName: "gearshape")
                         Text("Settings")
@@ -109,12 +113,12 @@ struct ContentView: View {
                 }
                 
                 Button(action: {
-                    if self.tweet != "" {
-                        client.v2.tweet.postTweet(.init(text: self.tweet))
-                            .responseObject {response in
-                                print(response.prettyString)
-                            }
-                    }
+//                    if self.tweet != "" {
+//                        client.v2.tweet.postTweet(.init(text: self.tweet))
+//                            .responseObject {response in
+//                                print(response.prettyString)
+//                            }
+//                    }
                 }, label: {
                     Text("Tweet")
                 })
