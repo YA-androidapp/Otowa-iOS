@@ -8,17 +8,23 @@
 import Foundation
 import TwitterAPIKit
 
-func getClient() -> TwitterAPIKit? {
-    var client :TwitterAPIKit? = nil
+class TwitterAccess: NSObject, ObservableObject {
+    @Published var client: TwitterAPIKit?
     
-    if(
-        UserDefaults.standard.string(forKey: "ck_preference") != "" &&
-        UserDefaults.standard.string(forKey: "cs_preference") != "" &&
-        UserDefaults.standard.string(forKey: "ot_preference") != "" &&
-        UserDefaults.standard.string(forKey: "os_preference") != ""
-    ) {
-        do {
-            client = try TwitterAPIKit(
+    override init() {
+        super.init()
+        
+        checkCredentials()
+    }
+    
+    func checkCredentials() {
+        if(
+            UserDefaults.standard.string(forKey: "ck_preference") != "" &&
+            UserDefaults.standard.string(forKey: "cs_preference") != "" &&
+            UserDefaults.standard.string(forKey: "ot_preference") != "" &&
+            UserDefaults.standard.string(forKey: "os_preference") != ""
+        ) {
+            client = TwitterAPIKit(
                 .oauth(
                     consumerKey: UserDefaults.standard.string(forKey: "ck_preference") ?? "",
                     consumerSecret: UserDefaults.standard.string(forKey: "cs_preference") ?? "",
@@ -26,11 +32,15 @@ func getClient() -> TwitterAPIKit? {
                     oauthTokenSecret: UserDefaults.standard.string(forKey: "os_preference") ?? ""
                 )
             )
-            return client
-        } catch {
-            return nil
+            
+            client?.v1.getAccountSetting(.init())
+                .responseObject() {
+                    response in
+                    UserDefaults.standard.set(!response.isError, forKey: "authorized")
+                    
+                    print(UserDefaults.standard.bool(forKey: "authorized"))
+                }
         }
-    } else {
-        return nil
     }
 }
+
