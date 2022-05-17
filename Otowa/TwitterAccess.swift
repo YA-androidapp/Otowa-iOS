@@ -11,6 +11,17 @@ import TwitterAPIKit
 class TwitterAccess: NSObject, ObservableObject {
     @Published var client: TwitterAPIKit?
     
+    struct UserInfo: Decodable {
+        let data: Data
+        
+        struct Data: Decodable {
+            let id: String
+            let username: String
+            let name: String
+            let profile_image_url: String
+        }
+    }
+    
     override init() {
         super.init()
         
@@ -33,13 +44,31 @@ class TwitterAccess: NSObject, ObservableObject {
                 )
             )
             
-            client?.v1.getAccountSetting(.init())
-                .responseObject() {
-                    response in
-                    UserDefaults.standard.set(!response.isError, forKey: "authorized")
-                    
-                    print(UserDefaults.standard.bool(forKey: "authorized"))
+//            client?.v1.getAccountSetting(.init())
+//                .responseObject() {
+//                    response in
+//                    UserDefaults.standard.set(!response.isError, forKey: "authorized")
+//
+//                    print(UserDefaults.standard.bool(forKey: "authorized"))
+//                }
+            
+            var userInfo: UserInfo?
+            client?.v2.user.getMe(.init(expansions: .none, tweetFields: .none, userFields: [.profileImageUrl])).responseObject { response in
+                UserDefaults.standard.set(!response.isError, forKey: "authorized")
+                
+                if !response.isError {
+                    do {
+                        userInfo = try JSONDecoder().decode(UserInfo.self, from: response.data!)
+                        print(userInfo!)
+                    } catch {
+                        print(error)
+                        userInfo = nil
+                    }
+                } else {
+                    print("Error", String(describing: response.error))
+                    userInfo = nil
                 }
+            }
         }
     }
 }
